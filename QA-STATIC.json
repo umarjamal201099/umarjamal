@@ -1,0 +1,12 @@
+{
+  "duplicate_ids": [],
+  "broken_internal_anchors": [],
+  "missing_local_assets": [],
+  "images_without_alt": [],
+  "blank_targets_without_noopener": [],
+  "buttons_without_type": [],
+  "tabs": 7,
+  "tab_panel": true,
+  "product_cards_pressed_semantics": true,
+  "architecture_mode_pressed_semantics": true
+}
