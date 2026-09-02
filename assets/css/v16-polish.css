@@ -1,0 +1,338 @@
+/* =========================================================
+   V16 — stability, accessibility and cohesive premium polish
+   This file intentionally sits after modern.css so old versioned
+   patches cannot re-introduce contrast, sizing or responsive bugs.
+   ========================================================= */
+:root {
+  --paper: #f5f8f6;
+  --paper-2: #edf3f0;
+  --surface: #ffffff;
+  --surface-soft: #f8faf9;
+  --ink: #10251c;
+  --muted: #617168;
+  --line: #d6e1dc;
+  --line-strong: #bdcec6;
+  --green: #155f48;
+  --green-2: #2e7a60;
+  --green-soft: #e6f0eb;
+  --dark: #0b281e;
+  --dark-surface: #11382b;
+  --dark-line: #315b4c;
+  --dark-muted: #b8cbc2;
+  /* One coordinated family for the system-map legend. */
+  --map-business: #587a6d;
+  --map-core: #0f5f49;
+  --map-service: #2d705a;
+  --map-security: #65715d;
+  --map-data: #68756f;
+}
+
+html { scroll-padding-top: calc(var(--header-h) + 20px); }
+section[id], main[id] { scroll-margin-top: calc(var(--header-h) + 20px); }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid rgba(21,95,72,.20);
+  outline-offset: 3px;
+}
+
+/* Cohesive surfaces: no beige/green mismatch between sections. */
+body { background: var(--paper); }
+.site-header { background: rgba(250,252,251,.95); border-color: transparent; }
+.site-header.is-scrolled { background: rgba(255,255,255,.97); border-color: var(--line); }
+.hero, .selected-work, .client-work, .contact { background: #fbfdfc; }
+.erp-specialization, .capabilities { background: #eef4f1; }
+.experience, .client-outcomes, .delivery-flow, .booking-cta { background: #f5f8f6; }
+.current-strip { background: var(--dark); }
+.advisory, .platform-track { background: #0c241b; }
+.site-footer { background: #eaf1ed; }
+
+/* System map: all semantic accents now belong to the same restrained palette. */
+.system-screen {
+  border-color: #cad8d1;
+  background: #fff;
+  box-shadow: 0 24px 64px rgba(14,45,34,.09);
+}
+.screen-chrome, .screen-statusbar { background: #f4f8f6; }
+.screen-toolbar, .architecture-path { background: #fbfcfb; }
+.screen-address { border-color: #d7e2dc; background: #fff; }
+.architecture-network { background: #f7faf8; }
+.network-node,
+.data-foundation button {
+  border-color: #cedbd4;
+  box-shadow: 0 5px 18px rgba(14,45,34,.035);
+}
+.architecture-network[data-mode="technical"] .node-technical,
+.architecture-network[data-mode="technical"] [data-arch-key="api"] {
+  background: #f0f7f4;
+}
+.architecture-network[data-mode="technical"] [data-arch-key="data"] {
+  background: #f4f7f5;
+}
+.architecture-network[data-mode="security"] .node-security {
+  background: #f5f7f1;
+}
+.erp-core-node,
+.architecture-network[data-mode="executive"] .erp-core-node,
+.architecture-network[data-mode="technical"] .erp-core-node,
+.architecture-network[data-mode="security"] .erp-core-node,
+.architecture-network[data-mode="technical"] .erp-core-node.is-active,
+.architecture-network[data-mode="security"] .erp-core-node.is-active {
+  border-color: #176a52;
+  background: #104c3b;
+  box-shadow: 0 20px 42px rgba(16,76,59,.17);
+}
+.erp-core-node:hover,
+.erp-core-node:focus-visible,
+.erp-core-node.is-active { background: #104c3b; border-color: #66a18a; }
+.architecture-brief {
+  border-color: #1f4c3d;
+  background: #0d3025;
+  box-shadow: 0 22px 56px rgba(9,40,30,.15);
+}
+.architecture-resources a { background: #123c2e; border-color: #396654; }
+.architecture-resources a:hover,
+.architecture-resources a:focus-visible { background: #174735; border-color: #78aa95; }
+.brief-cta { min-height: 48px; }
+
+/* Readability: the architecture UI previously contained 6.5–9px labels. */
+.screen-eyebrow,
+.network-label,
+.network-node > span,
+.data-foundation button > span,
+.status-ready,
+.map-legend span,
+.brief-topline,
+.brief-label,
+.brief-facts dt,
+.architecture-resources > span {
+  font-size: 9px;
+  line-height: 1.4;
+}
+.network-node small,
+.data-foundation button small { font-size: 10px; line-height: 1.45; }
+.network-node strong,
+.data-foundation button strong { line-height: 1.25; }
+.map-legend { gap: 8px 14px; }
+.map-legend span::before { width: 7px; height: 7px; }
+.architecture-path { min-width: 0; }
+.architecture-path span { overflow-wrap: anywhere; }
+
+/* Centaiva interactive window: clearer internal navigation and larger text. */
+.feature-case-live {
+  border-color: var(--line-strong);
+  background: #f9fbfa;
+  box-shadow: 0 26px 72px rgba(14,48,36,.075);
+}
+.feature-case-live .feature-media { background: #edf4f0; }
+.product-window {
+  border-color: #c6d7cf;
+  background: #fff;
+  box-shadow: 0 22px 58px rgba(14,48,36,.10);
+}
+.product-window-bar { min-height: 50px; background: #f4f8f6; color: #5d7067; }
+.product-window-bar > span { font-size: 9px; }
+.product-window-bar a { min-height: 36px; display: inline-flex; align-items: center; padding-inline: 11px; border-radius: 8px; }
+.product-ui { grid-template-columns: 160px minmax(0,1fr); }
+.product-sidebar { background: #eff5f2; }
+.product-sidebar-brand strong { font-size: 11px; }
+.product-sidebar-brand small { font-size: 8.5px; }
+.product-tabs { gap: 5px; }
+.product-tabs button {
+  min-height: 42px;
+  padding: 9px 11px 9px 14px;
+  font-size: 10.5px;
+  line-height: 1.25;
+}
+.product-main { padding: 25px 27px 24px; }
+.product-main-head > div > span { font-size: 9px; }
+.product-main-head h4 { font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.08; }
+.product-main-head em { font-size: 8.5px; }
+.product-context { padding: 11px 13px; }
+.product-context span { font-size: 8.5px; }
+.product-context strong { font-size: 11px; line-height: 1.5; }
+.product-kpis button { min-height: 82px; }
+.product-kpis span,
+.product-lower span { font-size: 8.5px; line-height: 1.35; }
+.product-kpis strong { font-size: 11.5px; line-height: 1.35; }
+.product-lower p { font-size: 9.5px; line-height: 1.45; }
+.product-flow span { font-size: 8.5px; }
+.product-flow strong { font-size: 10.5px; }
+.product-kpis button.is-selected,
+.product-kpis button[aria-pressed="true"],
+.product-lower button.is-selected,
+.product-lower button[aria-pressed="true"] {
+  border-color: #4f8d74;
+  background: #edf6f2;
+  box-shadow: 0 0 0 3px rgba(21,95,72,.08), 0 8px 20px rgba(14,48,36,.06);
+}
+.product-selection {
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: 10px 16px;
+  align-items: baseline;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid #d9e4de;
+  border-radius: 9px;
+  background: #f5f9f7;
+}
+.product-selection span {
+  color: #6d8177;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.product-selection strong {
+  color: #2c453a;
+  font-size: 10.5px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+.product-main[role="tabpanel"]:focus-visible { outline-offset: -4px; }
+
+/* Controls and external reference links should be easy to hit on touch screens. */
+.track-link,
+.architecture-resources a,
+.case-actions button,
+.case-actions a,
+.work-link,
+.booking-cta-actions a,
+.booking-cta-actions button { min-height: 44px; align-items: center; }
+
+/* Forms: prevent labels/status from getting crushed and make scrolling predictable. */
+.booking-dialog-grid { overscroll-behavior: contain; }
+.booking-form label > span { color: #4e6158; font-weight: 700; }
+.form-status { min-height: 1.5em; }
+.booking-live-option { border-radius: 10px; }
+
+/* Motion is purposeful and short. Never hide content while waiting for JS. */
+.motion-ready .reveal-item { opacity: 1; transform: none; }
+.motion-ready .reveal-item.is-visible { animation-duration: 280ms; }
+.product-main.is-updating { opacity: .72; transform: translateY(1px); }
+
+@media (max-width: 1080px) {
+  .main-nav { overscroll-behavior: contain; }
+}
+
+@media (max-width: 820px) {
+  .architecture-workbench { gap: 14px; }
+  .screen-toolbar { align-items: stretch; }
+  .architecture-modes button { min-height: 44px; }
+  .architecture-network { background: #f8faf9; }
+}
+
+@media (max-width: 640px) {
+  .wrap { width: min(calc(100% - 24px), var(--max)); }
+  .product-window { border-radius: 12px; }
+  .product-window-bar { min-height: 44px; }
+  .product-ui { display: block; }
+  .product-sidebar { padding: 12px 10px; }
+  .product-sidebar-brand { margin-bottom: 10px; }
+  .product-tabs { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+  .product-tabs button {
+    min-height: 44px;
+    padding: 9px 7px;
+    font-size: 10px;
+    border-color: #d1ded7;
+  }
+  .product-main { padding: 15px 12px 13px; }
+  .product-main-head > div > span { font-size: 8.5px; }
+  .product-main-head em { min-height: 30px; font-size: 8px; }
+  .product-context { grid-template-columns: 1fr; gap: 4px; }
+  .product-context span { font-size: 8.5px; }
+  .product-context strong { font-size: 11px; }
+  .product-kpis { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .product-kpis button { min-height: 72px; padding: 11px; }
+  .product-kpis button:last-child { grid-column: 1 / -1; }
+  .product-flow { grid-template-columns: 1fr 1fr; }
+  .product-flow div { min-height: 58px; display: grid; align-content: center; }
+  .product-lower > button { min-height: 72px; padding: 11px; }
+  .product-selection { grid-template-columns: 1fr; gap: 4px; padding: 10px 11px; }
+  .feature-media-note { font-size: 10.5px; line-height: 1.55; }
+
+  .architecture-path { overflow: visible; flex-wrap: wrap; }
+  .architecture-path span,
+  .architecture-path span:nth-of-type(4),
+  .architecture-path span:nth-of-type(5) {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    min-height: 34px;
+    font-size: 8px;
+  }
+  .architecture-modes button { font-size: 10px; }
+  .network-node > span,
+  .data-foundation button > span,
+  .network-label,
+  .status-ready,
+  .map-legend span { font-size: 8px; }
+  .network-node small,
+  .data-foundation button small { font-size: 10px; }
+  .map-legend { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .architecture-brief > p { font-size: 13px; }
+  .architecture-resources a { min-height: 56px; }
+}
+
+@media (max-width: 360px) {
+  .product-tabs button { font-size: 9.5px; }
+  .product-kpis { grid-template-columns: 1fr; }
+  .product-kpis button:last-child { grid-column: auto; }
+  .architecture-path span,
+  .architecture-path span:nth-of-type(4),
+  .architecture-path span:nth-of-type(5) { flex-basis: 100%; }
+  .booking-dialog-head h2 { font-size: 1.75rem; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-tabs button:hover,
+  .product-kpis button:hover,
+  .product-lower button:hover,
+  .network-node:hover,
+  .data-foundation button:hover,
+  .architecture-resources a:hover,
+  .case-actions a:hover,
+  .case-actions button:hover { transform: translateY(-1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+  .product-main,
+  .product-tabs button,
+  .product-kpis button,
+  .product-lower button,
+  .network-node,
+  .erp-core-node,
+  .data-foundation button { transition-duration: 0.01ms !important; animation: none !important; }
+}
+
+/* V16.1 — final touch-target and microcopy readability corrections. */
+.erp-tags span { font-size: 10px; line-height: 1.3; }
+.track-link,
+.architecture-resources a,
+.booking-cta-actions a,
+.booking-cta-actions button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .erp-tags span { font-size: 9.5px; }
+  .track-link { padding-block: 8px; }
+}
+.track-link.external-link { min-height: 44px; }
+/* Preserve card layouts while keeping 44px touch targets. */
+.architecture-resources a {
+  display: grid;
+  align-content: center;
+  min-height: 48px;
+}
+.track-link.external-link { display: inline-flex; min-height: 44px; }
+@media (max-width: 640px) {
+  .product-window-bar a { display: none; }
+  .architecture-resources a { min-height: 56px; }
+}
