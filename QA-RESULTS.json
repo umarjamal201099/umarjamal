@@ -1,92 +1,18 @@
-[
-  {
-    "width": 320,
-    "metrics": {
-      "scrollWidth": 320,
-      "clientWidth": 320,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
+{
+  "build": "V19",
+  "status": "static_pass_with_external_embed_caveat",
+  "checks": {
+    "duplicate_ids": 0,
+    "missing_local_assets": 0,
+    "broken_internal_anchors": 0,
+    "previewable_link_instances": 13,
+    "previewable_links_missing_preview_title": 0,
+    "previewable_links_missing_preview_description": 0,
+    "previewable_links_missing_new_tab_policy": 0,
+    "eye_markup_hardcoded_on_non_preview_links": 0,
+    "javascript_syntax_errors": 0,
+    "css_brace_balance_errors": 0
   },
-  {
-    "width": 360,
-    "metrics": {
-      "scrollWidth": 360,
-      "clientWidth": 360,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 390,
-    "metrics": {
-      "scrollWidth": 390,
-      "clientWidth": 390,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 430,
-    "metrics": {
-      "scrollWidth": 430,
-      "clientWidth": 430,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 768,
-    "metrics": {
-      "scrollWidth": 768,
-      "clientWidth": 768,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 820,
-    "metrics": {
-      "scrollWidth": 820,
-      "clientWidth": 820,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 1024,
-    "metrics": {
-      "scrollWidth": 1024,
-      "clientWidth": 1024,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 1440,
-    "metrics": {
-      "scrollWidth": 1440,
-      "clientWidth": 1440,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  },
-  {
-    "width": 1920,
-    "metrics": {
-      "scrollWidth": 1920,
-      "clientWidth": 1920,
-      "overflow": 0,
-      "offenders": []
-    },
-    "errors": []
-  }
-]
+  "preview_policy": "The eye is created only for links carrying valid data-site-preview metadata and a valid HTTP(S) preview URL. Private work, social/contact links and ordinary external links do not receive an eye.",
+  "caveat": "Remote websites can refuse iframe embedding with X-Frame-Options or CSP frame-ancestors. The preview window therefore always keeps an Open new tab action as the reliable fallback."
+}

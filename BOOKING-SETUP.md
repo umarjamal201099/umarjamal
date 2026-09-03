@@ -1,4 +1,4 @@
-# Booking & Payment Setup — V17
+# Booking & Payment Setup — V19
 
 Last reviewed: 1 September 2026.
 

@@ -1,19 +1,15 @@
-# Umar Jamal — Premium Enterprise Portfolio V17
+# Umar Jamal — Premium Enterprise Portfolio V19
 
 Responsive static portfolio focused on Epicor ERP, C#/.NET, SQL Server, Xero/finance integrations, enterprise architecture, identity, API delivery and technical advisory.
 
-## V17 mobile UX + visual system
+## V19 curated live-preview + external-link UX
 
-- Replaced the very long mobile ERP node stack with a **one-tap system explorer**. Business, Technical and Security modes now show only the relevant layers and update one focused detail card.
-- Added a **Next layer** interaction so a client can understand the system flow without scrolling through every node.
-- Reworked mobile booking into a **one-click session picker** for Free / 30 / 60 / 90 minute sessions, with the form shown immediately instead of placing a large advisory sidebar before it.
-- Unified the site around a neutral **white / cool-slate / deep-teal** enterprise palette with one restrained primary accent.
-- Kept the Epicor core and architecture detail panel high-contrast while removing mismatched green/amber/blue washes.
-- Reworked Centaiva mobile controls so **all seven internal layers are visible** without horizontal clipping or hidden overflow.
-- Increased small technical metadata sizes and kept 44px-class touch targets for important controls.
-- Preserved reduced-motion behavior, keyboard interaction, booking fallbacks and the desktop interactive map.
-- Added `assets/css/v17-premium.css` and `assets/js/v17-ui.js` as isolated final layers so the new mobile behavior does not destabilize the existing desktop implementation.
-- Updated the visible build tag to V17.
+- Expanded the browser-style **live website preview** to every curated public project/reference link that has preview data: Xero, Scalar, BankMind, Bahria Town, Galvin, Caterlink, C & W Services, United Fasteners, MIT Semiconductor and Orbital UAV.
+- The eye affordance appears **only** on links with preview data. Private work, contact/social links and ordinary external links do not show an eye.
+- Reload, Close and **Open new tab** remain available in the preview window, with mobile/fullscreen-safe sizing and focus restoration.
+- Enforced `target="_blank"` plus `rel="noopener noreferrer"` for all external HTTP(S) links, including dynamically configured URLs.
+- Uses `assets/css/v19-preview.css` and `assets/js/v19-preview.js` as isolated enhancement layers.
+- Updated the visible build tag to V19.
 
 ## Booking
 

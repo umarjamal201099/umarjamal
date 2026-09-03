@@ -1,13 +1,16 @@
 {
-  "build": "V17",
+  "build": "V19",
   "duplicate_ids": [],
   "missing_local_assets": [],
   "broken_internal_anchors": [],
+  "previewable_link_instances": 13,
+  "preview_data_validation": "pass",
   "javascript_syntax": "pass",
   "css_brace_balance": "pass",
   "notes": [
-    "Mobile ERP system map switches to a compact one-layer explorer at 700px and below.",
-    "Mobile booking dialog hides the long descriptive sidebar and uses one-click session cards.",
-    "Centaiva mobile layer controls fit inside the viewport without horizontal overflow."
+    "Preview eye cues are generated only for links with valid preview metadata.",
+    "Private projects and links without preview metadata show no eye.",
+    "All external HTTP(S) URLs retain target=_blank and noopener/noreferrer behavior.",
+    "Every preview dialog retains Open new tab, Reload and Close controls."
   ]
 }
