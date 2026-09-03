@@ -1,0 +1,587 @@
+/* =========================================================
+   V17 — premium mobile-first interaction pass
+   Neutral enterprise palette, compact one-tap system explorer,
+   and a faster booking experience.
+   ========================================================= */
+:root {
+  --paper: #f5f7f8;
+  --paper-2: #eef2f4;
+  --surface: #ffffff;
+  --surface-soft: #f8fafb;
+  --ink: #12202b;
+  --ink-2: #233543;
+  --muted: #657580;
+  --line: #d8e0e5;
+  --line-strong: #c4d0d7;
+  --accent: #0f6b61;
+  --accent-strong: #0b564e;
+  --accent-soft: #e9f3f1;
+  --accent-soft-2: #f1f7f6;
+  --dark: #102b2a;
+  --dark-2: #173a38;
+  --dark-line: #315554;
+  --dark-muted: #b9ceca;
+  --map-business: #5f7882;
+  --map-core: #0f6b61;
+  --map-service: #2f6f78;
+  --map-security: #4f6c80;
+  --map-data: #596b78;
+}
+
+html { background: var(--paper); }
+body { background: var(--paper); color: var(--ink); }
+.site-header { background: rgba(255,255,255,.95); }
+.site-header.is-scrolled { background: rgba(255,255,255,.98); border-color: var(--line); }
+.hero, .selected-work, .client-work, .contact { background: #fff; }
+.erp-specialization, .capabilities { background: #f3f6f7; }
+.experience, .client-outcomes, .delivery-flow, .booking-cta { background: #f7f9fa; }
+.current-strip, .advisory, .platform-track { background: var(--dark); }
+.site-footer { background: #edf2f3; }
+
+/* One visual language for all primary actions. */
+.primary-link,
+.main-nav .nav-book,
+.submit-button {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.primary-link:hover,
+.main-nav .nav-book:hover,
+.submit-button:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+.main-nav > a[aria-current="page"] { background: var(--accent-soft); color: var(--accent-strong); }
+.plain-link, .work-link, .track-link { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* =========================================================
+   System map — desktop / tablet
+   ========================================================= */
+.erp-specialization { background-image: none; }
+.architecture-workbench {
+  grid-template-columns: minmax(0, 1.85fr) minmax(300px, .72fr);
+  gap: 22px;
+  align-items: stretch;
+}
+.system-screen {
+  min-width: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 22px 56px rgba(18,32,43,.08);
+}
+.screen-chrome {
+  min-height: 48px;
+  border-bottom-color: var(--line);
+  background: #f7f9fa;
+}
+.screen-address {
+  border-color: var(--line);
+  background: #fff;
+  color: #71808a;
+}
+.screen-live { color: var(--accent-strong); }
+.screen-live i, .status-ready i { background: var(--accent); box-shadow: 0 0 0 3px rgba(15,107,97,.10); }
+.screen-toolbar {
+  gap: 18px;
+  padding-block: 22px;
+  background: #fff;
+  border-bottom-color: var(--line);
+}
+.screen-eyebrow { color: #72828c; font-size: 10px !important; }
+.screen-toolbar strong { color: var(--ink); }
+.architecture-modes {
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #f2f5f6;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
+}
+.architecture-modes button {
+  min-height: 40px;
+  border: 0;
+  border-radius: 8px;
+  color: #61717b;
+  font-weight: 750;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.architecture-modes button:hover { background: rgba(255,255,255,.72); color: var(--ink); }
+.architecture-modes button.is-active {
+  background: #fff;
+  color: var(--accent-strong);
+  box-shadow: 0 1px 2px rgba(18,32,43,.06), 0 7px 18px rgba(18,32,43,.06);
+}
+.architecture-path {
+  min-width: 0;
+  padding: 12px 18px;
+  background: #fafcfc;
+  border-bottom-color: var(--line);
+}
+.architecture-path span {
+  color: #687983;
+  font-size: 9.5px;
+  letter-spacing: .04em;
+}
+.architecture-network { background: #f8fafb; }
+.network-label,
+.network-node > span,
+.data-foundation button > span,
+.status-ready,
+.map-legend span,
+.brief-topline,
+.brief-label,
+.brief-facts dt,
+.architecture-resources > span { font-size: 10px !important; }
+.network-node small,
+.data-foundation button small { font-size: 11px !important; }
+.network-node strong,
+.data-foundation button strong { font-size: 14px; }
+.network-node,
+.data-foundation button {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--node-accent, var(--map-business));
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(18,32,43,.035);
+}
+.network-inbound .network-node { --node-accent: var(--map-business); }
+.network-services .network-node { --node-accent: var(--map-service); }
+.network-services [data-arch-key="identity"] { --node-accent: var(--map-security); }
+.data-foundation button { --node-accent: var(--map-data); }
+.network-node.is-active,
+.network-node:focus-visible,
+.data-foundation button.is-active,
+.data-foundation button:focus-visible {
+  border-color: color-mix(in srgb, var(--node-accent) 58%, var(--line));
+  border-left-color: var(--node-accent);
+  background: color-mix(in srgb, var(--node-accent) 5%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--node-accent) 8%, transparent), 0 10px 24px rgba(18,32,43,.055);
+}
+.erp-core-node,
+.architecture-network[data-mode] .erp-core-node,
+.architecture-network[data-mode] .erp-core-node.is-active {
+  border-color: #1c6f67;
+  background: #123e3a;
+  box-shadow: 0 18px 40px rgba(18,62,58,.18);
+}
+.erp-core-node:hover,
+.erp-core-node:focus-visible,
+.erp-core-node.is-active { border-color: #5aa69d; background: #123e3a; }
+.erp-core-node .core-head span { color: #a9d0ca; }
+.erp-core-node .core-head small { color: #c9ddda; }
+.core-head { border-bottom-color: #2d5c57; }
+.core-modules span { border-color: #2d5c57 !important; color: #e6f0ee; }
+
+/* Keep alternate modes readable: no washed-out or off-palette cards. */
+.architecture-network[data-mode="technical"] .network-node:not(.node-technical):not([data-arch-key="api"]):not([data-arch-key="data"]),
+.architecture-network[data-mode="security"] .network-node:not(.node-security) {
+  opacity: .70;
+  filter: grayscale(.12);
+}
+.architecture-network[data-mode="technical"] .node-technical,
+.architecture-network[data-mode="technical"] [data-arch-key="api"] {
+  opacity: 1;
+  background: #f0f7f7;
+  border-left-color: var(--map-service);
+}
+.architecture-network[data-mode="security"] .node-security {
+  opacity: 1;
+  background: #f3f6f8;
+  border-left-color: var(--map-security);
+}
+.architecture-network[data-mode="technical"] [data-arch-key="data"] {
+  opacity: 1;
+  background: #f5f7f8;
+}
+.horizontal-connector i { background: var(--accent); box-shadow: 0 0 0 3px rgba(15,107,97,.08); }
+.screen-statusbar { background: #f4f7f8; border-top-color: var(--line); color: #647680; }
+.map-legend { gap: 8px 14px; }
+.map-legend span { color: #647680; }
+
+.architecture-brief {
+  min-width: 0;
+  border: 1px solid #244e4b;
+  border-radius: 16px;
+  background: #102f2d;
+  color: #fff;
+  box-shadow: 0 22px 58px rgba(16,47,45,.16);
+}
+.architecture-brief h3 { color: #fff; }
+.architecture-brief > p { color: #c8d9d6; font-size: 13px; }
+.brief-topline, .brief-label, .brief-facts dt { color: #9dbab5; }
+.architecture-brief blockquote { color: #f6fbfa; }
+.brief-divider, .brief-facts div, .architecture-resources { border-color: #315b57; }
+.brief-facts dd { color: #e2ecea; }
+.architecture-resources a { border-color: #3a6662; background: #163a37; }
+.architecture-resources a:hover,
+.architecture-resources a:focus-visible { border-color: #77aaa3; background: #1a4541; }
+.brief-cta { background: #eef8f6; color: #123c38; border-color: #cfe5e0; }
+
+.mobile-system-explorer { display: none; }
+
+/* =========================================================
+   Centaiva — one-click explorer that stays compact on mobile
+   ========================================================= */
+.product-window { border-color: var(--line-strong); box-shadow: 0 20px 50px rgba(18,32,43,.09); }
+.product-window-bar { background: #f6f8f9; border-color: var(--line); color: #697983; }
+.product-sidebar { background: #f2f6f6; }
+.product-tabs button.active { background: #143d3a; color: #fff; }
+.product-kpis button.is-selected,
+.product-kpis button[aria-pressed="true"],
+.product-lower button.is-selected,
+.product-lower button[aria-pressed="true"] {
+  border-color: #75a79f;
+  background: #edf6f4;
+  box-shadow: 0 0 0 3px rgba(15,107,97,.07), 0 8px 20px rgba(18,32,43,.05);
+}
+.product-selection { background: #f3f8f7; border-color: #d7e5e2; }
+
+/* =========================================================
+   Booking — faster, cleaner, one-click session selection
+   ========================================================= */
+.booking-dialog {
+  width: min(980px, calc(100vw - 32px));
+  max-height: min(880px, calc(100dvh - 32px));
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 34px 100px rgba(9,28,37,.28);
+}
+.booking-dialog::backdrop { background: rgba(11,25,32,.62); backdrop-filter: blur(5px); }
+.booking-dialog-head {
+  min-height: 118px;
+  padding: 24px 28px;
+  background: #102f2d;
+  border-bottom-color: #2c5552;
+}
+.booking-dialog-head > div { max-width: 620px; }
+.booking-dialog-head span { color: #a7c2bd; }
+.booking-dialog-head h2 { color: #fff; letter-spacing: -.045em; }
+.booking-dialog-close {
+  min-width: 76px;
+  min-height: 44px;
+  border: 1px solid #456c68;
+  border-radius: 10px;
+  color: #fff;
+  background: rgba(255,255,255,.02);
+}
+.booking-dialog-close:hover { background: rgba(255,255,255,.08); }
+.booking-dialog-grid { grid-template-columns: 280px minmax(0,1fr); background: #fff; }
+.booking-dialog-aside { background: #f3f6f7; border-color: var(--line); }
+.booking-dialog-note { border-color: var(--line); }
+.booking-dialog-note span, .booking-connect > span { color: #6d7e88; }
+.booking-dialog-note p { color: #657580; }
+.booking-dialog .booking-form { background: #fff; }
+
+.booking-quick-start {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.booking-quick-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.booking-quick-head span {
+  color: #63747e;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.booking-quick-head strong { color: var(--ink-2); font-size: 12px; font-weight: 650; }
+.booking-quick-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+.booking-quick-grid button {
+  min-width: 0;
+  min-height: 82px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #f9fbfb;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+.booking-quick-grid button:hover { border-color: #a8beb9; background: #fff; transform: translateY(-1px); }
+.booking-quick-grid button.is-active,
+.booking-quick-grid button[aria-pressed="true"] {
+  border-color: #6fa79f;
+  background: var(--accent-soft-2);
+  box-shadow: 0 0 0 3px rgba(15,107,97,.07);
+}
+.booking-quick-grid span { color: #687a84; font-size: 10px; font-weight: 700; }
+.booking-quick-grid strong { color: var(--ink); font-size: 15px; }
+.booking-quick-grid em { color: var(--accent-strong); font-size: 11px; font-style: normal; font-weight: 800; }
+.booking-form input,
+.booking-form textarea,
+.booking-form select { border-color: #cbd6dc; border-radius: 9px; background: #fbfcfd; color: var(--ink); }
+.booking-form input:focus,
+.booking-form textarea:focus,
+.booking-form select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(15,107,97,.10); }
+.booking-form label > span { color: #566a75; }
+.booking-live-option { border-color: #bcd6d1; background: #f1f8f6; }
+
+/* =========================================================
+   Responsive system map and product UI
+   ========================================================= */
+@media (max-width: 1080px) {
+  .architecture-workbench { grid-template-columns: 1fr; }
+  .architecture-brief { max-width: none; }
+}
+
+@media (max-width: 700px) {
+  .wrap { width: min(calc(100% - 24px), var(--max)); }
+  .erp-specialization { background: #f5f7f8; }
+  .erp-heading { gap: 18px; }
+  .system-screen { border-radius: 13px; box-shadow: 0 12px 30px rgba(18,32,43,.07); }
+  .screen-chrome {
+    grid-template-columns: 44px minmax(0,1fr);
+    min-height: 40px;
+    padding-inline: 10px;
+  }
+  .screen-dots i { width: 6px; height: 6px; }
+  .screen-address { min-width: 0; font-size: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .screen-live { display: none; }
+  .screen-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px 14px 14px;
+  }
+  .screen-toolbar strong { font-size: 18px; }
+  .screen-eyebrow { font-size: 9px !important; }
+  .architecture-modes {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 4px;
+  }
+  .architecture-modes button { min-height: 44px; padding-inline: 6px; font-size: 11px; }
+
+  /* The old mobile map stacked every node and created a very long screen.
+     V17 swaps it for a one-tap explorer. */
+  .architecture-path,
+  .architecture-network,
+  .screen-statusbar,
+  .architecture-brief { display: none !important; }
+  .mobile-system-explorer {
+    display: block;
+    padding: 14px;
+    background: #f7f9fa;
+  }
+  .mobile-explorer-intro {
+    display: grid;
+    gap: 7px;
+    padding: 13px 14px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: #fff;
+  }
+  .mobile-explorer-intro > div { display: grid; gap: 3px; }
+  .mobile-explorer-intro span {
+    color: var(--accent-strong);
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+  }
+  .mobile-explorer-intro strong { color: var(--ink); font-size: 14px; line-height: 1.3; }
+  .mobile-explorer-intro p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+  .mobile-layer-tabs {
+    display: flex;
+    gap: 7px;
+    margin: 10px -2px 10px;
+    padding: 2px 2px 5px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .mobile-layer-tabs::-webkit-scrollbar { display: none; }
+  .mobile-layer-tabs button {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 0 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: #5d707b;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+  }
+  .mobile-layer-tabs button[aria-selected="true"],
+  .mobile-layer-tabs button.is-active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(15,107,97,.14);
+  }
+  .mobile-layer-card {
+    padding: 17px;
+    border: 1px solid #b9d1cc;
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(18,32,43,.055);
+  }
+  .mobile-layer-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .mobile-layer-top span,
+  .mobile-layer-top em {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+  .mobile-layer-top span { color: var(--accent-strong); }
+  .mobile-layer-top em { color: #778791; }
+  .mobile-layer-card h3 { margin: 18px 0 7px; color: var(--ink); font-size: clamp(1.8rem, 9.5vw, 2.5rem); letter-spacing: -.045em; line-height: .98; }
+  .mobile-layer-card > p { margin: 0; color: #5f707b; font-size: 13px; line-height: 1.6; }
+  .mobile-layer-facts { margin: 18px 0 0; border-top: 1px solid var(--line); }
+  .mobile-layer-facts div { display: grid; grid-template-columns: 74px minmax(0,1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .mobile-layer-facts dt { color: #73848e; font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .05em; }
+  .mobile-layer-facts dd { margin: 0; color: var(--ink-2); font-size: 12px; font-weight: 700; }
+  .mobile-layer-actions { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+  .mobile-layer-actions button {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .mobile-layer-actions button:last-child { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+  /* Centaiva: horizontal one-tap layer bar instead of a tall 2-column grid. */
+  .product-ui { display: block; }
+  .product-sidebar { padding: 11px; }
+  .product-sidebar-brand { margin-bottom: 9px; }
+  .product-sidebar-brand strong { font-size: 12px; }
+  .product-sidebar-brand small { font-size: 10px; }
+  .product-tabs {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+  .product-tabs button {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 42px;
+    padding: 6px 5px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: #fff;
+    font-size: 9.4px;
+    line-height: 1.12;
+    white-space: normal;
+    text-align: center;
+  }
+  .product-tabs button.active { border-color: #143d3a; background: #143d3a; color: #fff; }
+  .product-main { padding: 15px 12px 13px; }
+  .product-context span,
+  .product-main-head > div > span,
+  .product-main-head em,
+  .product-kpis span,
+  .product-lower span,
+  .product-flow span,
+  .product-selection span { font-size: 9.5px !important; }
+  .product-context strong,
+  .product-kpis strong,
+  .product-flow strong,
+  .product-selection strong { font-size: 11.5px !important; }
+  .product-lower p { font-size: 10.5px !important; }
+}
+
+/* =========================================================
+   Mobile booking dialog
+   ========================================================= */
+@media (max-width: 640px) {
+  .booking-dialog {
+    width: calc(100vw - 12px);
+    height: calc(100dvh - 12px);
+    max-height: calc(100dvh - 12px);
+    margin: 6px;
+    border-radius: 14px;
+  }
+  .booking-dialog-shell { height: 100%; grid-template-rows: auto minmax(0,1fr); }
+  .booking-dialog-head {
+    position: relative;
+    min-height: 0;
+    padding: max(16px, env(safe-area-inset-top)) 16px 16px;
+    gap: 10px;
+  }
+  .booking-dialog-head > div { min-width: 0; }
+  .booking-dialog-head > div > span { font-size: 9px; }
+  .booking-dialog-head h2 { max-width: 285px; margin-top: 8px; font-size: clamp(1.65rem, 8.2vw, 2rem); line-height: 1; }
+  .booking-dialog-close {
+    min-width: 46px;
+    min-height: 42px;
+    padding-inline: 10px;
+    font-size: 0;
+  }
+  .booking-dialog-close::after { content: "×"; font-size: 22px; line-height: 1; }
+  .booking-dialog-grid {
+    display: block;
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+  }
+  .booking-dialog-aside { display: none; }
+  .booking-dialog .booking-form { padding: 15px 14px max(24px, env(safe-area-inset-bottom)); }
+  .booking-quick-start { margin-bottom: 14px; }
+  .booking-quick-head { display: grid; gap: 3px; }
+  .booking-quick-head strong { font-size: 11.5px; }
+  .booking-quick-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+  .booking-quick-grid button { min-height: 66px; padding: 9px 10px; border-radius: 10px; }
+  .booking-quick-grid span { font-size: 9.5px; }
+  .booking-quick-grid strong { font-size: 14px; }
+  .booking-quick-grid em { font-size: 10.5px; }
+  .booking-service-field { display: none !important; }
+  .field-pair { grid-template-columns: 1fr; }
+  .booking-form label { gap: 7px; }
+  .booking-form label > span { font-size: 9.5px; }
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea { min-height: 50px; font-size: 16px; }
+  .booking-form textarea { min-height: 118px; }
+  .booking-privacy { font-size: 10.5px; line-height: 1.5; }
+}
+
+@media (max-width: 360px) {
+  .mobile-system-explorer { padding: 11px; }
+  .mobile-explorer-intro, .mobile-layer-card { padding: 13px; }
+  .mobile-layer-card h3 { font-size: 1.75rem; }
+  .mobile-layer-facts div { grid-template-columns: 66px minmax(0,1fr); }
+  .booking-dialog { width: calc(100vw - 8px); height: calc(100dvh - 8px); margin: 4px; }
+  .booking-dialog-head { padding-inline: 13px; }
+  .booking-dialog .booking-form { padding-inline: 11px; }
+  .booking-quick-grid button { padding-inline: 8px; }
+}
+
+@media (hover: none) {
+  .network-node:hover,
+  .erp-core-node:hover,
+  .data-foundation button:hover,
+  .booking-quick-grid button:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .architecture-modes button,
+  .network-node,
+  .erp-core-node,
+  .data-foundation button,
+  .mobile-layer-tabs button,
+  .mobile-layer-actions button,
+  .booking-quick-grid button { transition: none !important; transform: none !important; }
+}

@@ -3,16 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7f8f6">
+  <meta name="theme-color" content="#f5f7f8">
   <meta name="color-scheme" content="light">
-  <meta name="description" content="Umar Jamal — Software Engineer and Epicor ERP Developer with 4–5 years of professional experience across Epicor ERP, C#/.NET, SQL Server, Xero accounting integrations, APIs, identity and production systems.">
-  <meta property="og:title" content="Umar Jamal — Epicor ERP Developer & Software Engineer">
-  <meta property="og:description" content="4–5 years building Epicor ERP, C#/.NET backend systems, SQL Server solutions, Xero/CRM integrations, SSO, APIs and enterprise applications.">
+  <meta name="description" content="Epicor ERP and .NET software engineer with 4–5 years of experience across C#, SQL Server, Xero/CRM integrations, SSO, APIs and production systems.">
+  <meta property="og:title" content="Umar Jamal | Epicor ERP & .NET Software Engineer">
+  <meta property="og:description" content="4–5 years across Epicor ERP, C#/.NET, SQL Server, enterprise integrations, identity and production systems.">
   <meta property="og:type" content="website">
-  <title>Umar Jamal — Epicor ERP Developer | C# .NET Enterprise Software Engineer</title>
+  <meta property="og:url" content="https://umarjamal201099.github.io/umarjamal/">
+  <meta property="og:image" content="https://umarjamal201099.github.io/umarjamal/assets/img/umar-optimized.webp">
+  <meta property="og:image:alt" content="Umar Jamal — Epicor ERP and .NET Software Engineer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Umar Jamal | Epicor ERP & .NET Software Engineer">
+  <meta name="twitter:description" content="Epicor ERP, .NET, SQL Server, enterprise integrations, identity and production systems.">
+  <meta name="twitter:image" content="https://umarjamal201099.github.io/umarjamal/assets/img/umar-optimized.webp">
+  <link rel="canonical" href="https://umarjamal201099.github.io/umarjamal/">
+  <title>Umar Jamal | Epicor ERP & .NET Software Engineer</title>
   <link rel="icon" href="assets/favicon-.png" type="image/png">
   <link rel="stylesheet" href="assets/css/modern.css">
   <link rel="stylesheet" href="assets/css/v16-polish.css">
+  <link rel="stylesheet" href="assets/css/v17-premium.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,8 +47,8 @@
       </button>
 
       <nav class="main-nav" id="main-nav" data-nav aria-label="Primary navigation">
-        <a href="#work" data-nav-link><span>Work</span><small>Selected systems</small></a>
         <a href="#erp-architecture" data-nav-link><span>System map</span><small>ERP architecture</small></a>
+        <a href="#work" data-nav-link><span>Work</span><small>Selected systems</small></a>
         <a href="#experience" data-nav-link><span>Experience</span><small>Professional history</small></a>
         <a href="#capabilities" data-nav-link><span>Expertise</span><small>Stack & ownership</small></a>
         <a href="#advisory" data-nav-link><span>Advisory</span><small>Technical sessions</small></a>
@@ -116,7 +125,7 @@
             <div class="screen-chrome">
               <div class="screen-dots" aria-hidden="true"><i></i><i></i><i></i></div>
               <div class="screen-address"><span class="screen-lock">◆</span> enterprise.system-map / epicor</div>
-              <span class="screen-live"><i></i> Interactive map</span>
+              <span class="screen-live"><i></i> Live system explorer</span>
             </div>
 
             <div class="screen-toolbar">
@@ -137,6 +146,37 @@
               <span data-path-step="services">.NET / APIs</span><i aria-hidden="true">→</i>
               <span data-path-step="access">Identity / Apps</span><i aria-hidden="true">→</i>
               <span data-path-step="data">SQL / Reporting</span>
+            </div>
+
+            <div class="mobile-system-explorer" data-mobile-system-explorer aria-label="Interactive system map">
+              <div class="mobile-explorer-intro">
+                <div><span data-mobile-mode-label>Business flow</span><strong data-mobile-mode-title>From customer demand to ERP operations</strong></div>
+                <p data-mobile-mode-copy>Tap a layer once to see what it owns, why it exists and how it connects to the next system.</p>
+              </div>
+              <div class="mobile-layer-tabs" role="tablist" aria-label="System layers">
+                <button type="button" role="tab" data-mobile-arch-key="customer">Customer</button>
+                <button type="button" role="tab" data-mobile-arch-key="crm">CRM</button>
+                <button type="button" role="tab" data-mobile-arch-key="erp" aria-selected="true">Epicor ERP</button>
+                <button type="button" role="tab" data-mobile-arch-key="integration">.NET</button>
+                <button type="button" role="tab" data-mobile-arch-key="api">REST API</button>
+                <button type="button" role="tab" data-mobile-arch-key="identity">Identity</button>
+                <button type="button" role="tab" data-mobile-arch-key="external">Apps</button>
+                <button type="button" role="tab" data-mobile-arch-key="data">SQL</button>
+              </div>
+              <article class="mobile-layer-card" aria-live="polite">
+                <div class="mobile-layer-top"><span data-mobile-arch-index>03</span><em data-mobile-arch-category>Operational core</em></div>
+                <h3 data-mobile-arch-title>Epicor ERP</h3>
+                <p data-mobile-arch-copy>Epicor owns operational rules, transactional workflows and enterprise data.</p>
+                <dl class="mobile-layer-facts">
+                  <div><dt>Focus</dt><dd data-mobile-arch-focus>Operational continuity</dd></div>
+                  <div><dt>Method</dt><dd data-mobile-arch-method>ERP-owned rules</dd></div>
+                  <div><dt>Result</dt><dd data-mobile-arch-outcome>Stable system of record</dd></div>
+                </dl>
+                <div class="mobile-layer-actions">
+                  <button type="button" data-mobile-arch-next>Next layer <span aria-hidden="true">→</span></button>
+                  <button type="button" data-book-service="Free 15-minute fit check">Discuss this system <span aria-hidden="true">↗</span></button>
+                </div>
+              </article>
             </div>
 
             <div class="architecture-network" data-architecture-network data-mode="executive">
@@ -551,7 +591,7 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div><strong>Umar Jamal</strong><span>Software engineer · Epicor ERP developer · 4–5 years</span></div>
-      <p>© <span data-year></span> Umar Jamal. Built around real engineering work. <span class="build-tag">V16</span></p>
+      <p>© <span data-year></span> Umar Jamal. Built around real engineering work. <span class="build-tag">V17</span></p>
       <div><a href="#top">Back to top ↑</a><a href="assets/Umar-Jamal-CV.pdf" download>CV ↓</a></div>
     </div>
   </footer>
@@ -569,6 +609,15 @@
           <div class="booking-connect"><span>Prefer direct contact?</span><a href="https://wa.me/923006917248?text=Hi%20Umar%2C%20I%27d%20like%20to%20schedule%20a%20call." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="mailto:umarjamal201099@gmail.com?subject=Schedule%20a%20call">Email ↗</a></div>
         </aside>
         <form class="booking-form" id="booking-form" action="https://formspree.io/f/mzzbdgjb" method="POST">
+          <div class="booking-quick-start" aria-label="Choose a session">
+            <div class="booking-quick-head"><span>Choose a session</span><strong>One click, then add your context.</strong></div>
+            <div class="booking-quick-grid" role="group" aria-label="Session options">
+              <button type="button" class="is-active" data-booking-choice="Free 15-minute fit check"><span>Discovery</span><strong>15 min</strong><em>Free</em></button>
+              <button type="button" data-booking-choice="30-minute Technical Direction — $35"><span>Direction</span><strong>30 min</strong><em>$35</em></button>
+              <button type="button" data-booking-choice="60-minute Architecture / ERP Advisory — $65"><span>Architecture</span><strong>60 min</strong><em>$65</em></button>
+              <button type="button" data-booking-choice="90-minute Deep-Dive Review — $95"><span>Deep dive</span><strong>90 min</strong><em>$95</em></button>
+            </div>
+          </div>
           <div class="booking-live-option" data-live-booking hidden>
             <div><span>Live availability</span><strong data-live-booking-label>Book this session instantly</strong><p data-live-booking-note>Select a live time slot. Paid sessions can collect payment inside the connected scheduling provider.</p></div>
             <a class="booking-live-link" data-live-booking-link href="#" target="_blank" rel="noopener noreferrer">Open live calendar ↗</a>
@@ -578,7 +627,7 @@
             <label><span>Name</span><input type="text" name="Name" autocomplete="name" required placeholder="Your name"></label>
             <label><span>Work email</span><input type="email" name="Email" autocomplete="email" required placeholder="you@company.com"></label>
           </div>
-          <label><span>Session</span>
+          <label class="booking-service-field"><span>Session</span>
             <select name="Service" id="booking-service" required>
               <option value="">Select a call</option>
               <option>Free 15-minute fit check</option>
@@ -605,5 +654,6 @@
   </noscript>
   <script src="assets/js/booking-config.js" defer></script>
   <script src="assets/js/modern.js" defer></script>
+  <script src="assets/js/v17-ui.js" defer></script>
 </body>
 </html>
