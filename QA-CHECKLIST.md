@@ -1,100 +1,45 @@
-# V16 QA Checklist
+# V17 QA Checklist
 
-## Responsive bounds — PASS
-
-Automated Chromium layout checks were run at:
-
-- 320px
-- 360px
-- 390px
-- 430px
-- 640px
-- 768px
-- 820px
-- 900px
-- 1024px
-- 1080px
-- 1180px
-- 1366px
-- 1440px
-- 1600px
-- 1920px
+## Responsive matrix
+Browser layout/interaction QA was run at: **320, 360, 390, 430, 768, 820, 1024, 1440 and 1920 px**.
 
 Results:
-
 - 0px document-level horizontal overflow at every tested width.
-- No visible elements escaped the viewport bounds.
-- The only clipped element reported by the generic detector is the intentionally off-screen `Skip to content` accessibility link while it is not focused.
-- Mobile interactive controls meet the QA touch-target threshold after V16 fixes; the hidden skip link is excluded because it is intentionally unavailable until keyboard focus.
+- No visible elements escaping the viewport in the tested states.
+- No browser console errors or page errors in the tested interactions.
 
-## ERP system map — PASS
+## Mobile ERP system map
+- Desktop node network is replaced at 700px and below by a compact one-tap system explorer.
+- Business mode exposes Customer → CRM → Epicor ERP.
+- Technical mode exposes Epicor ERP → .NET → REST API → Apps → SQL.
+- Security mode exposes Identity → REST API → Apps → Epicor ERP.
+- Layer chips update the explanation, focus, method and result in one tap.
+- “Next layer” advances through the current mode without a long page scroll.
+- Desktop/tablet interactive system map remains available above the mobile breakpoint.
 
-- Business mode selects **Epicor ERP**.
-- Technical mode selects **C# / .NET Integration Layer**.
-- Security mode selects **Identity & SSO**.
-- Mode state and selected node state update without page errors.
-- ERP core remains dark/high-contrast in every mode.
-- Semantic colors now use one coordinated green/sage/slate family.
-- Mobile route chips wrap inside the viewport instead of requiring clipped horizontal scrolling.
-- Xero and Scalar reference cards remain usable on mobile.
+## Booking dialog
+- Mobile dialog fills the usable viewport without horizontal clipping.
+- The long discovery/advisory sidebar is removed on mobile so the form is visible immediately.
+- Free / 30 / 60 / 90 minute sessions are selectable with one tap.
+- Session choice stays synchronized with the existing form `<select>` and live-booking configuration.
+- 60-minute paid-session selection was explicitly tested.
+- Form inputs remain 16px on mobile to avoid iOS auto-zoom.
+- Dialog close control, internal scrolling and safe-area padding were checked at 320px and 390px.
 
-## Centaiva internal product demo — PASS
+## Centaiva interactive window
+- All seven architecture layers are visible on mobile in a compact wrapped control grid.
+- No hidden horizontal tab overflow.
+- Identity tab interaction was tested and updates the product content in-place.
+- Existing keyboard interaction remains intact.
 
-- Seven internal tabs work: Platform, Identity, Tenancy, Entitlements, Integrations, Applications and Data.
-- Proper tab semantics are present: `role="tablist"`, `role="tab"`, `aria-selected`, `aria-controls`, `role="tabpanel"` and `aria-labelledby`.
-- Arrow-key navigation, Home and End work.
-- Fast tab changes are race-safe: an earlier delayed render cannot overwrite the latest tab selection.
-- KPI and lower architecture cards are clickable and expose `aria-pressed` state.
-- Card selection updates a dedicated **Selected detail** inspector rather than replacing the main layer summary.
-- Mobile tabs are wrapped, readable and at least 44px tall.
-- The desktop-only product-window action is hidden on phones so it cannot collapse into a narrow vertical button.
-- The 320px browser address no longer clips.
+## Static checks
+- No duplicate HTML IDs.
+- No missing local assets.
+- No broken internal anchor targets.
+- `modern.js` and `v17-ui.js` pass `node --check`.
+- CSS brace counts are balanced for `modern.css`, `v16-polish.css` and `v17-premium.css`.
 
-## Mobile navigation — PASS
-
-- Closed menu is hidden/inert.
-- Open menu is visible and interactive.
-- Escape closes the menu.
-- Breakpoint behavior remains aligned at 1080px and below.
-
-## Booking dialog — PASS
-
-- Free and paid CTAs open the same booking dialog.
-- Service preselection works (verified with the 60-minute ERP/Architecture session).
-- Browser timezone auto-populates when available.
-- Close action works and restores normal page state.
-- 320px dialog remains within the viewport and scrolls internally.
-- No payment secrets are stored in frontend code.
-
-## Static integrity — PASS
-
-- Duplicate IDs: none.
-- Broken internal anchors: none.
-- Missing referenced local assets: none.
-- Images missing `alt`: none.
-- `_blank` links missing `noopener`: none.
-- Buttons missing `type`: none.
-- `node --check assets/js/modern.js`: pass.
-- CSS parser errors in `modern.css`: none.
-- CSS parser errors in `v16-polish.css`: none.
-- Browser console/page errors during automated interaction checks: none.
-
-## Visual QA performed
-
-Key sections were rendered at phone and desktop widths for manual inspection:
-
-- Hero
-- ERP architecture map
-- Centaiva interactive product screen
-- Delivery/approach flow
-- Advisory section
-- Booking dialog
-
-## Production-only checks still required after IIS deployment
-
-- Verify real HTTPS certificate/binding and redirect behavior.
-- Verify Formspree accepts submissions from the production domain.
-- Add and test real public scheduler URLs if desired.
-- Complete one genuine scheduling/payment flow before advertising instant paid booking.
-- Test real iPhone/Safari and Android/Chrome hardware.
-- Run Lighthouse against the deployed HTTPS URL.
+## Intentionally not tested
+- Formspree submission was not sent to avoid creating a fake lead.
+- External scheduler/payment flows remain dependent on public URLs configured in `assets/js/booking-config.js`.
+- Production IIS/GitHub Pages cache and TLS behavior must be verified after deployment.

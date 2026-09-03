@@ -1,23 +1,19 @@
-# Umar Jamal — Premium Enterprise Portfolio V16
+# Umar Jamal — Premium Enterprise Portfolio V17
 
 Responsive static portfolio focused on Epicor ERP, C#/.NET, SQL Server, Xero/finance integrations, enterprise architecture, identity, API delivery and technical advisory.
 
-## V16 stability + UI polish
+## V17 mobile UX + visual system
 
-- Added a final override layer in `assets/css/v16-polish.css` so earlier version patches cannot re-introduce color, touch-target or responsive regressions.
-- Unified the site around white/soft-sage surfaces, graphite text and one restrained enterprise-green family.
-- Reworked ERP map semantic colors into coordinated green/sage/slate tones instead of unrelated blue/amber accents.
-- Increased very small map/product labels and improved mobile readability.
-- Added 44px minimum touch targets to Centaiva tabs and key external reference actions.
-- Fixed a 320px Centaiva browser-bar clipping issue by shortening the internal address label and hiding the desktop-only browser action on phones.
-- Improved the Centaiva product demo with complete tab semantics (`aria-controls`, `aria-labelledby`), pressed-state semantics for clickable cards and an internal selected-detail inspector.
-- Fixed fast tab switching so a delayed previous render can no longer overwrite the newest selected Centaiva layer.
-- Clicking KPI/detail cards no longer destroys the layer summary; the selected item is shown in a dedicated inspector.
-- Preserved keyboard tab navigation with Arrow keys, Home and End.
-- Preserved Business / Technical / Security ERP map modes and mode-specific default selections.
-- Added safer section scroll margins for the fixed header.
-- Tightened booking-dialog scrolling, focus styles and mobile form behavior.
-- Updated the visible build tag to V16.
+- Replaced the very long mobile ERP node stack with a **one-tap system explorer**. Business, Technical and Security modes now show only the relevant layers and update one focused detail card.
+- Added a **Next layer** interaction so a client can understand the system flow without scrolling through every node.
+- Reworked mobile booking into a **one-click session picker** for Free / 30 / 60 / 90 minute sessions, with the form shown immediately instead of placing a large advisory sidebar before it.
+- Unified the site around a neutral **white / cool-slate / deep-teal** enterprise palette with one restrained primary accent.
+- Kept the Epicor core and architecture detail panel high-contrast while removing mismatched green/amber/blue washes.
+- Reworked Centaiva mobile controls so **all seven internal layers are visible** without horizontal clipping or hidden overflow.
+- Increased small technical metadata sizes and kept 44px-class touch targets for important controls.
+- Preserved reduced-motion behavior, keyboard interaction, booking fallbacks and the desktop interactive map.
+- Added `assets/css/v17-premium.css` and `assets/js/v17-ui.js` as isolated final layers so the new mobile behavior does not destabilize the existing desktop implementation.
+- Updated the visible build tag to V17.
 
 ## Booking
 
@@ -36,6 +32,10 @@ Open `http://localhost:8080`.
 ## IIS deployment
 
 The project includes `web.config`. Copy the folder to the IIS site root and enable IIS Static Content. Configure the production HTTPS binding/redirect after the certificate is installed.
+
+## GitHub Pages
+
+All website asset paths are relative, so the project remains compatible with a project site such as `username.github.io/repository/`.
 
 ## Deployment targets
 

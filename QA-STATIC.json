@@ -1,12 +1,13 @@
 {
+  "build": "V17",
   "duplicate_ids": [],
-  "broken_internal_anchors": [],
   "missing_local_assets": [],
-  "images_without_alt": [],
-  "blank_targets_without_noopener": [],
-  "buttons_without_type": [],
-  "tabs": 7,
-  "tab_panel": true,
-  "product_cards_pressed_semantics": true,
-  "architecture_mode_pressed_semantics": true
+  "broken_internal_anchors": [],
+  "javascript_syntax": "pass",
+  "css_brace_balance": "pass",
+  "notes": [
+    "Mobile ERP system map switches to a compact one-layer explorer at 700px and below.",
+    "Mobile booking dialog hides the long descriptive sidebar and uses one-click session cards.",
+    "Centaiva mobile layer controls fit inside the viewport without horizontal overflow."
+  ]
 }
