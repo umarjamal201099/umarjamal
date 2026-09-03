@@ -473,3 +473,278 @@ a.external-new-tab:not([data-site-preview]) .site-preview-row-cue {
   }
   .architecture-resources a.site-preview-trigger { padding-right: 42px; }
 }
+
+/* =========================================================
+   V20 — reliable in-portfolio preview
+   External sites often block cross-origin framing. The eye now opens
+   a same-origin project overview by default, so users never see a
+   broken-browser icon. Verified embeddable destinations can opt in
+   with data-preview-mode="live".
+   ========================================================= */
+
+.site-preview-stage {
+  display: grid;
+  min-height: 0;
+  background:
+    radial-gradient(circle at 86% 10%, rgba(15,107,97,.08), transparent 30%),
+    linear-gradient(180deg, #f8fbfa 0%, #eef5f3 100%);
+}
+
+.site-preview-overview {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr);
+  gap: clamp(18px, 3vw, 38px);
+  align-items: stretch;
+  padding: clamp(24px, 4vw, 54px);
+}
+
+.site-preview-overview[hidden],
+.site-preview-frame[hidden],
+.site-preview-loading[hidden] { display: none !important; }
+
+.site-preview-overview-main {
+  min-width: 0;
+  align-self: center;
+  padding: clamp(8px, 2vw, 20px) 0;
+}
+
+.site-preview-overline {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid #b8cec9;
+  border-radius: 999px;
+  background: rgba(255,255,255,.72);
+  color: var(--accent-strong);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.site-preview-overview-main h3 {
+  max-width: 760px;
+  margin: 18px 0 12px;
+  color: var(--ink);
+  font-size: clamp(2.1rem, 5vw, 4.8rem);
+  line-height: .96;
+  letter-spacing: -.055em;
+}
+
+.site-preview-overview-main > p {
+  max-width: 690px;
+  margin: 0;
+  color: #51636a;
+  font-size: clamp(14px, 1.35vw, 18px);
+  line-height: 1.62;
+}
+
+.site-preview-context {
+  max-width: 690px;
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #c9d9d6;
+}
+
+.site-preview-context span {
+  color: #718188;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.site-preview-context strong {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.site-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+.site-preview-tags span {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border: 1px solid #c5d5d2;
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  color: #41565b;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.site-preview-overview-side {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+}
+
+.site-preview-domain-card {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid #174d45;
+  border-radius: 18px;
+  background: #0d332d;
+  color: #f2fbf8;
+  box-shadow: 0 20px 60px rgba(10,45,40,.16);
+}
+
+.site-preview-domain-card > span {
+  color: #9dc8bf;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.site-preview-domain-card > strong {
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+}
+
+.site-preview-domain-card > p {
+  margin: 18px 0 0;
+  color: #c4dcd7;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.site-preview-domain-card > a {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 26px;
+  padding: 11px 13px;
+  border: 1px solid #7eb1a8;
+  border-radius: 10px;
+  background: #eef9f6;
+  color: #0a443b;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-preview-domain-card > a:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+.site-preview-domain-card > a:focus-visible {
+  outline: 3px solid rgba(255,255,255,.38);
+  outline-offset: 3px;
+}
+
+.site-preview-signal {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid #c7d7d4;
+  border-radius: 12px;
+  background: rgba(255,255,255,.76);
+  color: #64787c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: .06em;
+}
+
+.site-preview-signal i {
+  width: 18px;
+  height: 1px;
+  background: #8eaaa5;
+  position: relative;
+}
+
+.site-preview-signal i::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border-top: 1px solid #8eaaa5;
+  border-right: 1px solid #8eaaa5;
+  transform: rotate(45deg);
+}
+
+/* In overview mode there is nothing remote to reload. Keep the action useful
+   but visually secondary. */
+.site-preview-action[data-site-preview-reload] {
+  background: #f7faf9;
+}
+
+@media (max-width: 760px) {
+  .site-preview-overview {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 18px 14px 22px;
+  }
+  .site-preview-overview-main { padding: 0; }
+  .site-preview-overview-main h3 {
+    margin-top: 14px;
+    font-size: clamp(2rem, 12vw, 3.15rem);
+  }
+  .site-preview-overview-main > p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .site-preview-context {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-top: 20px;
+    padding-top: 14px;
+  }
+  .site-preview-context strong { font-size: 13px; }
+  .site-preview-tags { margin-top: 13px; }
+  .site-preview-tags span { font-size: 10.5px; }
+  .site-preview-overview-side { grid-template-rows: auto auto; }
+  .site-preview-domain-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  .site-preview-domain-card > strong { font-size: 1.55rem; }
+  .site-preview-domain-card > p { margin-top: 12px; font-size: 11px; }
+  .site-preview-domain-card > a { margin-top: 17px; }
+  .site-preview-signal { display: none; }
+}
+
+@media (max-width: 360px) {
+  .site-preview-overview { padding: 15px 10px 18px; }
+  .site-preview-overline { font-size: 9px; }
+  .site-preview-overview-main h3 { font-size: 2rem; }
+  .site-preview-domain-card { padding: 15px; }
+}
+
+@media (max-width: 760px) {
+  .site-preview-dialog[data-preview-mode="overview"] .site-preview-actions {
+    grid-template-columns: 1.25fr .75fr;
+  }
+}

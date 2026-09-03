@@ -1,16 +1,9 @@
 {
-  "build": "V19",
+  "build": "V20",
   "duplicate_ids": [],
   "missing_local_assets": [],
   "broken_internal_anchors": [],
   "previewable_link_instances": 13,
   "preview_data_validation": "pass",
-  "javascript_syntax": "pass",
-  "css_brace_balance": "pass",
-  "notes": [
-    "Preview eye cues are generated only for links with valid preview metadata.",
-    "Private projects and links without preview metadata show no eye.",
-    "All external HTTP(S) URLs retain target=_blank and noopener/noreferrer behavior.",
-    "Every preview dialog retains Open new tab, Reload and Close controls."
-  ]
+  "iframe_policy": "hidden/default overview"
 }

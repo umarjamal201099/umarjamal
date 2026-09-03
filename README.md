@@ -1,15 +1,17 @@
-# Umar Jamal — Premium Enterprise Portfolio V19
+# Umar Jamal — Premium Enterprise Portfolio V20
 
 Responsive static portfolio focused on Epicor ERP, C#/.NET, SQL Server, Xero/finance integrations, enterprise architecture, identity, API delivery and technical advisory.
 
-## V19 curated live-preview + external-link UX
+## V20 — reliable eye-screen website previews
 
-- Expanded the browser-style **live website preview** to every curated public project/reference link that has preview data: Xero, Scalar, BankMind, Bahria Town, Galvin, Caterlink, C & W Services, United Fasteners, MIT Semiconductor and Orbital UAV.
-- The eye affordance appears **only** on links with preview data. Private work, contact/social links and ordinary external links do not show an eye.
-- Reload, Close and **Open new tab** remain available in the preview window, with mobile/fullscreen-safe sizing and focus restoration.
-- Enforced `target="_blank"` plus `rel="noopener noreferrer"` for all external HTTP(S) links, including dynamically configured URLs.
-- Uses `assets/css/v19-preview.css` and `assets/js/v19-preview.js` as isolated enhancement layers.
-- Updated the visible build tag to V19.
+- Curated links still use the portfolio **eye** affordance, but the eye screen no longer tries to iframe third-party websites by default.
+- The eye now opens a reliable same-origin **portfolio preview** with the project context, technology/role tags and the real destination domain.
+- **Open live site** always opens the real external website in a new tab.
+- This avoids the broken-page icon caused when external sites send `X-Frame-Options` or CSP `frame-ancestors` rules that prohibit embedding.
+- Optional iframe mode is still supported by `assets/js/v20-preview.js` for a destination explicitly marked `data-preview-mode="live"` after verifying that the destination permits framing.
+- Eye cues appear only on links with preview metadata. Private work, contact/social links and ordinary external links do not show an eye.
+- All external HTTP(S) links use `target="_blank"` plus `rel="noopener noreferrer"`.
+- Uses `assets/css/v20-preview.css` and `assets/js/v20-preview.js` as isolated enhancement layers.
 
 ## Booking
 
