@@ -101,7 +101,7 @@
     trigger.classList.add('site-preview-trigger');
 
     if (trigger.closest('.client-list')) {
-      const tail = trigger.querySelector('i');
+      const tail = trigger.querySelector('.client-tail, i');
       if (tail) {
         tail.classList.add('site-preview-row-cue');
         tail.innerHTML = `${eyeMarkup}<span>Preview</span>`;

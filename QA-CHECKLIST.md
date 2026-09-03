@@ -1,24 +1,28 @@
-# V20 QA Checklist
+# V21 QA checklist
 
-## Eye-screen preview fix
+## Fixed from the reported mobile screenshot
+- Replaced the floating circular eye + separate `Preview` label with one compact **eye + Preview pill**.
+- Removed the generic circular dash from the private CRM row; it now uses a quiet **Private case** status.
+- Removed the generic circular up-arrow from Epicor ERP Delivery; it now uses a clear **Experience →** action.
+- Removed horizontal hover-shifting from Additional project work rows.
+- Increased project title and metadata readability on mobile.
+- Added stronger focus-visible treatment for keyboard users.
+- Kept the full project row clickable, while keeping the action visually clear.
+- At very narrow widths, the action remains in a controlled right column rather than floating above/below unpredictably.
 
-- [x] BankMind and other curated eye links no longer depend on third-party iframe permission.
-- [x] Eye click opens a same-origin portfolio preview instead of a broken browser frame.
-- [x] Real destination remains available through **Open live site** in a new tab.
-- [x] External HTTP(S) links retain `noopener noreferrer`.
-- [x] Preview title, description, context, tags and domain are populated from the selected project/link.
-- [x] Preview iframe is hidden by default and can only be enabled explicitly with `data-preview-mode="live"`.
-- [x] Close restores focus to the original eye trigger.
-- [x] Modified Ctrl/Cmd/Shift/Alt clicks keep normal browser behavior.
+## Preview policy
+- Eye/Preview is rendered only on rows with valid `data-site-preview` metadata.
+- Private/non-preview rows do not receive an eye.
+- External links use `target="_blank"` with `noopener noreferrer`.
+- Eye click continues to open the same-origin portfolio preview dialog; **Open live site** remains the external new-tab path.
 
-## Static integrity
+## Static validation
+- Duplicate IDs: 0
+- Missing local assets: 0
+- Broken internal anchors: 0
+- External-link security errors: 0
+- Legacy circular dash/up-arrow icons in Additional project work: 0
+- JavaScript syntax: passed (`modern.js`, `v17-ui.js`, `v20-preview.js`)
+- V21 CSS braces: balanced
 
-- [x] No duplicate IDs.
-- [x] No missing local assets.
-- [x] No broken internal anchors.
-- [x] All curated preview links include valid preview metadata.
-- [x] JavaScript syntax passes `node --check`.
-
-## Hosting note
-
-GitHub Pages is static hosting. It cannot override security headers sent by BankMind or another third-party destination. Live iframe mode should only be enabled for sites that explicitly allow your portfolio origin to frame them.
+See `QA-RESULTS.json` for the machine-readable checks.

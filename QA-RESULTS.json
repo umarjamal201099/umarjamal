@@ -1,20 +1,24 @@
 {
-  "build": "V20",
-  "status": "static_pass",
+  "build": "V21",
+  "status": "pass",
+  "focus": "Additional project work action UI and mobile consistency",
   "checks": {
     "duplicate_ids": 0,
     "missing_local_assets": 0,
     "broken_internal_anchors": 0,
-    "previewable_link_instances": 13,
-    "preview_metadata_or_mode_errors": 0,
-    "iframe_hidden_by_default": true,
-    "overview_present": true
+    "external_links_without_target_blank_noopener_noreferrer": 0,
+    "additional_work_preview_rows": 6,
+    "preview_rows_missing_action_slot": 0,
+    "private_row_has_preview_eye": false,
+    "legacy_round_dash_arrow_icons_in_additional_work": 0,
+    "internal_epicor_has_explicit_experience_action": true,
+    "v21_css_loaded": true
   },
-  "preview_policy": "Curated eye links open a same-origin portfolio overview by default. The actual external destination opens with Open live site in a new tab. Optional live iframe mode must be explicitly enabled only for destinations verified to permit framing.",
   "issues": {
     "duplicate_ids": [],
     "missing_assets": [],
     "broken_anchors": [],
-    "preview_problems": []
+    "external_link_errors": [],
+    "preview_action_errors": []
   }
 }

@@ -1,0 +1,241 @@
+/* =========================================================
+   V21 — project-list / action polish
+   Fixes the cramped mobile action column, inconsistent dash/arrow
+   circles, and preview-label wrapping in Additional project work.
+   ========================================================= */
+
+:root {
+  --v21-accent: #0f6252;
+  --v21-accent-hover: #0a4f42;
+  --v21-accent-soft: #eef7f3;
+  --v21-accent-line: #b9d2c8;
+  --v21-row-line: #d9e2dd;
+  --v21-row-hover: #f3f8f5;
+  --v21-ink: #14231e;
+  --v21-muted: #64756e;
+}
+
+/* Additional project work — consistent information + action model. */
+.client-list {
+  border-top-color: var(--v21-row-line);
+}
+
+.client-list a,
+.client-static {
+  position: relative;
+  grid-template-columns: minmax(180px, .54fr) minmax(0, 1fr) auto;
+  gap: 18px 28px;
+  min-height: 88px;
+  padding: 18px 14px;
+  border-bottom-color: var(--v21-row-line);
+  color: var(--v21-ink);
+}
+
+.client-list a {
+  border-radius: 10px;
+  transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+}
+
+.client-list a:hover {
+  padding-left: 14px;
+  background: var(--v21-row-hover);
+  color: var(--v21-ink);
+  transform: none;
+}
+
+.client-list a:focus-visible {
+  z-index: 1;
+  outline: 3px solid rgba(15,98,82,.22);
+  outline-offset: -3px;
+  background: var(--v21-row-hover);
+}
+
+.client-list span {
+  color: var(--v21-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.client-list strong {
+  min-width: 0;
+  color: var(--v21-ink);
+  font-size: 14px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+/* Preview is a single compact pill — never an eye floating above text. */
+.client-list .site-preview-row-cue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 92px;
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid var(--v21-accent-line);
+  border-radius: 999px;
+  background: var(--v21-accent-soft);
+  color: var(--v21-accent);
+  font-size: 11px !important;
+  font-weight: 760;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.client-list .site-preview-row-cue svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.client-list a.site-preview-trigger:hover .site-preview-row-cue {
+  border-color: #88b2a2;
+  background: #e5f3ed;
+  color: var(--v21-accent-hover);
+}
+
+/* Non-preview entries do not pretend to have an eye action. */
+.client-static .client-status,
+.client-list .client-action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 10.5px;
+  font-weight: 720;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.client-static .client-status {
+  border: 1px solid #d5ddd9;
+  background: #f4f6f5;
+  color: #6d7a74;
+}
+
+.client-list .client-action-link {
+  gap: 7px;
+  border: 1px solid var(--v21-accent-line);
+  background: #fff;
+  color: var(--v21-accent);
+}
+
+.client-list .client-action-link b {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.client-list .client-internal-link:hover .client-action-link {
+  border-color: #88b2a2;
+  background: var(--v21-accent-soft);
+  color: var(--v21-accent-hover);
+}
+
+/* Legacy generic icon treatment must not leak into the redesigned rows. */
+.client-list i.site-preview-row-cue,
+.client-list .client-status,
+.client-list .client-action-link {
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 760px) {
+  .client-heading {
+    margin-bottom: 30px;
+  }
+
+  .client-list a,
+  .client-static {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px 14px;
+    min-height: 0;
+    padding: 18px 8px;
+    border-radius: 0;
+  }
+
+  .client-list span,
+  .client-list strong {
+    grid-column: 1;
+  }
+
+  .client-list span {
+    font-size: 11.5px;
+  }
+
+  .client-list strong {
+    font-size: 13.5px;
+    line-height: 1.48;
+  }
+
+  .client-list .site-preview-row-cue,
+  .client-static .client-status,
+  .client-list .client-action-link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    justify-self: end;
+    margin: 0;
+  }
+
+  .client-list .site-preview-row-cue {
+    min-width: 86px;
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 10.5px !important;
+  }
+
+  .client-static .client-status,
+  .client-list .client-action-link {
+    min-height: 36px;
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+
+  /* Whole clickable row is the tap target, so avoid horizontal movement. */
+  .client-list a:hover,
+  .client-list a:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .client-list a,
+  .client-static {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 7px 10px;
+    padding-inline: 5px;
+  }
+
+  .client-list .site-preview-row-cue {
+    min-width: 78px;
+    padding-inline: 8px;
+    font-size: 10px !important;
+  }
+
+  .client-static .client-status,
+  .client-list .client-action-link {
+    padding-inline: 8px;
+    font-size: 9.8px;
+  }
+}
+
+/* Keep external-link cues visually consistent with the same restrained palette. */
+.site-preview-eye-cue {
+  border-color: var(--v21-accent-line);
+  background: var(--v21-accent-soft);
+  color: var(--v21-accent);
+}
+
+/* Prevent ultra-small helper text in the preview experience. */
+@media (max-width: 640px) {
+  .site-preview-heading > span,
+  .site-preview-overline { font-size: 10px; }
+  .site-preview-heading p,
+  .site-preview-domain-card > p { font-size: 12px; }
+  .site-preview-foot p { font-size: 11px; }
+}

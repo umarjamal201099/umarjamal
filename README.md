@@ -1,8 +1,8 @@
-# Umar Jamal — Premium Enterprise Portfolio V20
+# Umar Jamal — Premium Enterprise Portfolio V21
 
 Responsive static portfolio focused on Epicor ERP, C#/.NET, SQL Server, Xero/finance integrations, enterprise architecture, identity, API delivery and technical advisory.
 
-## V20 — reliable eye-screen website previews
+## V21 — reliable eye-screen website previews
 
 - Curated links still use the portfolio **eye** affordance, but the eye screen no longer tries to iframe third-party websites by default.
 - The eye now opens a reliable same-origin **portfolio preview** with the project context, technology/role tags and the real destination domain.
